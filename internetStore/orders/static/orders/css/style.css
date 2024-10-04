@@ -1,0 +1,115 @@
+body.lightTheme {
+  background-color: white;
+  color: black;
+}
+
+body.darkTheme {
+  background-color: black;
+  color: white;
+}
+
+#header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+}
+
+.togglSswitch {
+  position: relative;
+}
+
+.toggleSwitch input[type="checkbox"] {
+  display: none;
+}
+
+.toggleLabel {
+  display: block;
+  width: 50px;
+  height: 26px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 1s ease;
+}
+
+.toggleCircle {
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 1s ease, background-color 1s ease;
+}
+
+input[type="checkbox"]:checked + .toggleLabel {
+  background-color: rgb(255, 255, 255);
+}
+
+input[type="checkbox"]:checked + .toggleLabel .toggleCircle {
+  transform: translateX(24px);
+  background-color: rgb(0, 0, 0);
+}
+
+/*  */
+.ordersText{
+  margin-left: 45%;
+}
+
+.noOrders{
+  margin-left: 40%;
+}
+
+.ordersContainer {
+  margin-left: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.orderCard {
+  margin-left: 2%;
+  margin-top: 2%;
+  border-radius: 10px;
+  padding: 15px;
+  width: calc(33% - 20px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.orderCardDark {
+  margin-left: 2%;
+  margin-top: 2%;
+  border-radius: 10px;
+  padding: 15px;
+  width: calc(33% - 20px);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+.orderCard h2, .orderCard h3 {
+  margin: 0 0 10px;
+}
+
+.orderCardDark h2, .orderCardDark h3 {
+  margin: 0 0 10px;
+}
+
+.chatButton {
+  display: inline-block;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.chatButtonDark {
+  display: inline-block;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}

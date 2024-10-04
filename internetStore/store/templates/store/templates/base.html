@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+</head>
+<body>
+  <header id="header">
+
+    <div>
+      <img src="{% static 'store/images/logo.png' %}" alt="" onclick="location.href='{% url "mainPage" %}'">
+    </div>
+
+    <div class="toggleSwitch">
+      <input type="checkbox" id="switch" name="switch">
+      <label for="switch" class="toggleLabel">
+        <div class="toggleCircle"></div>
+      </label>
+    </div>
+
+  </header>
+
+ <div id="mainDiv">
+
+    <div id="divHeader" class="divHeader">
+      <div class="headerComponent" onclick="location.href='{% url "mainPage" %}'">
+        <h4>Главная страница</h4>
+      </div>
+
+      <div class="headerComponent" onclick="location.href='{% url "searchPage" %}'">
+        <h4>Каталог</h4>
+      </div>
+
+      <div class="headerComponent" onclick="location.href='{% url "shoppingCart" %}'">
+        <h4>Корзина</h4>
+      </div>
+
+
+      {% if user.is_authenticated %}
+        <div class="headerComponent" id="userMenu">
+          {% if user.is_staff %}
+            <h4>Админ: {{ user.username }}</h4>
+            <div class="dropdownContent" id="dropdownContent">
+              <a class="dropdownUrl" href="{% url 'logout' %}">Выход</a>
+            </div>
+          {% else %}
+            <h4>{{ user.username }}</h4>
+            <div class="dropdownContent" id="dropdownContent">
+              <a class="dropdownUrl" href="{% url 'createNewAccount' %}?editing=True">Профиль</a>
+              <a class="dropdownUrl" href="{% url 'getPageOfOrders' %}">Заказы</a>
+              <a class="dropdownUrl" href="{% url 'logout' %}">Выход</a>
+            </div>
+          {% endif %}
+        </div>
+      {% else %}
+      <div class="headerComponent" onclick="location.href='{% url "login" %}'">
+        <h4>Вход</h4>
+      </div>
+      {% endif %}
+      
+    </div>
+
+    {% block forSearchPage %}
+    {% endblock %}
+
+  </div>
+
+  {% block content %}
+  {% endblock %}
+
+</body>
+{% block contentJS %}
+{% endblock %}
+<script src="{% static 'store/js/themeToggle.js' %}"></script>
+</html>

@@ -1,0 +1,110 @@
+{% extends 'accounts/templates/base.html' %}
+{% load static %}
+
+{% block content %}
+{% if messages %}
+    <div id="notification" class="notification" style="display: none;">
+        {% for message in messages %}
+            <span class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</span>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<form action="" method="post" id="divForButton">
+  {% csrf_token %}
+  <div id="inputContainer">
+    
+      {% if username %}
+
+        <div class="buttons">
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" class="button" value="{{ username }}" required><br><br>
+            <p class="errorText" id="errorTextUsername"></p>
+        </div>
+
+        <div style="display: none;">
+            <input type="text" id="initialUsername" name="initialUsername" value="{{ username }}" required><br><br>
+        </div>
+
+        <div style="display: none;">
+            <input type="text" id="editing" name="editing" value="True" required><br><br>
+        </div>
+
+        <div class="buttons">
+            <label for="fullname">ФИО:</label>
+            <input type="text" id="fullname" name="fullname" class="button" value="{{ fullname }}" required><br><br>
+            <p class="errorText" id="errorTextFullname"></p>
+        </div>
+
+        <div class="buttons">
+            <label for="phone">Номер телефона:</label>
+            <input type="tel" id="phone" name="phone" class="button" value="{{ phoneNumber }}" required><br><br>
+            <p class="errorText" id="errorTextPhone"></p>
+        </div>
+
+      {% else %}
+
+        <div class="buttons">
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" class="button" value="{{ profile.user.username }}" required><br><br>
+            <p class="errorText" id="errorTextUsername"></p>
+        </div>
+
+        <div class="buttons">
+            <label for="fullname">ФИО:</label>
+            <input type="text" id="fullname" name="fullname" class="button" value="{{ profile.fullname }}" required><br><br>
+            <p class="errorText" id="errorTextFullname"></p>
+        </div>
+
+        <div class="buttons">
+            <label for="phone">Номер телефона:</label>
+            <input type="tel" id="phone" name="phone" class="button" value="{{ profile.phoneNumber }}" required><br><br>
+            <p class="errorText" id="errorTextPhone"></p>
+        </div>
+      {% endif %}
+
+      {% if not username %}
+
+        <div class="buttons">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" class="button" required><br><br>
+            <p class="errorText" id="errorTextPassword"></p>
+        </div>
+
+        <div class="buttons">
+            <label for="confirm_password">Подтверждение пароля:</label>
+            <input type="password" id="confirmPassword" name="confirm_password" class="button" required><br><br>
+            <p class="errorText" id="errorTextConfirmPassword"></p>
+        </div>
+
+        <div class="buttons" id="buttonDiv">
+            <button type="submit" class="button" id="buttonRegister">Зарегистрироваться</button>
+        </div>
+
+      {% else %}
+
+        <div class="buttons" id="buttonDiv">
+            <button type="submit" class="button" id="buttonRegister">Сохронить</button>
+        </div>
+
+      {% endif %}
+  </div>
+</form>
+{% endblock %}
+
+{% block contentJS %}
+    <script>
+        window.onload = function() {
+            var notification = document.getElementById('notification');
+            if (notification) {
+                notification.style.display = 'block';
+                setTimeout(function() {
+                notification.style.display = 'none';
+                }, 3000);
+            }
+        };
+
+        var csrfToken = '{{ csrf_token }}';
+    </script>
+    <script src="{% static 'accounts/js/createNewAccount.js' %}"></script>
+{% endblock %}

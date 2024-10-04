@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+</head>
+<body>
+  <header id="header">
+
+    <div>
+      <img src="{% static 'accounts/images/logo.png' %}" alt="" onclick="location.href='{% url "mainPage" %}'">
+    </div>
+
+    <div class="toggleSwitch">
+      <input type="checkbox" id="switch" name="switch">
+      <label for="switch" class="toggleLabel">
+        <div class="toggleCircle"></div>
+      </label>
+    </div>
+
+  </header>
+
+  {% block content %}
+  {% endblock %}
+</body>
+{% block contentJS %}
+{% endblock %}
+<script src="{% static 'accounts/js/themeToggle.js' %}"></script>
+</html>

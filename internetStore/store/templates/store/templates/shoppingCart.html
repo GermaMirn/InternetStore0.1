@@ -1,0 +1,52 @@
+{% extends 'store/templates/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div id="divOfCartItems">
+
+    {% if cartItems %}
+      {% for cartItem in cartItems %}
+        <div class="divOfCartItem" data-itemid="{{ cartItem.id }}" onclick="itemSelection(this, event)">
+
+          <div class="imageOfCartItemDiv">
+            <img class="imgeOfCartItem" src="{{ cartItem.product.mainImage.url }}" alt="imgOfProduct">
+          </div>
+
+          <div class="infoAboutCartItem">
+            <a class="nameOfCartItem" href="{% url 'productDetail' cartItem.product.id %}">{{ cartItem.product.name }}</a>
+            <div class="quantityControl">
+              <button class="btnChangeQuantity" data-action="remove" data-itemid="{{ cartItem.id }}">-</button>
+              <span class="quantityDisplay" data-itemid="{{ cartItem.id }}">{{ cartItem.quantity }}</span>
+              <button class="btnChangeQuantity" data-action="add" data-itemid="{{ cartItem.id }}">+</button>
+            </div>
+            <h3 class="itemPrice" data-itemid="{{ cartItem.id }}">{{ cartItem.price }} ₽</h3>
+            <button class="btnRemoveItem" data-itemid="{{ cartItem.id }}">Удалить</button>
+          </div>
+        </div>
+      {% endfor %}
+
+    {% else %}
+      <div id="divForTextAboutCartItem">
+        <h2>У вас нет добавленных товаров</h2>
+      </div>
+    {% endif %}
+
+  </div>
+  {% if cartItems %}
+    <div class="infoAboutSelectedCartItems">
+      <h2 id="mainTextAboutInfoSelectedCartItems">Информация о выбранных товарах:</h2>
+      <ul id="cartItemsList">
+      </ul>
+      <p id="totalPrice">Общая цена: 0₽</p>
+      <button class="orderButton">Заказать</button>
+    </div>
+  {% endif %}
+
+{% endblock %}
+
+{% block contentJS %}
+<script>
+  var csrfToken = '{{ csrf_token }}';
+</script>
+<script src="{% static 'store/js/shoppingCart.js' %}"></script>
+{% endblock %}

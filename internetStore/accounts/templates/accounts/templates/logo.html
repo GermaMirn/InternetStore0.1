@@ -1,0 +1,23 @@
+{% extends 'accounts/templates/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div id="divForButton">
+    <div class="buttons">
+      <button class="button" onclick="location.href='{% url "mainPage" %}'">Войти как гость</button><br>
+    </div>
+    
+    <div class="buttons">
+      <button class="button" onclick="location.href='{% url "enter" %}'">Войти в аккаунт</button><br>
+    </div>
+
+    <div class="buttons">
+      <button class="button" onclick="location.href='{% url "createNewAccount" %}'">Зарегистрироваться</button>
+    </div>
+    
+  </div>
+{% endblock %}
+
+{% block contentJS %}
+  <script src="{% static 'accounts/js/logo.js' %}"></script>
+{% endblock %}

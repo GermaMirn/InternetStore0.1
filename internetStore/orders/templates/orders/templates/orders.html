@@ -1,0 +1,50 @@
+{% extends 'orders/templates/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <div class="ordersText">
+    <h1>Мои заказы</h1>
+  </div>
+
+  <div class="divOfOrders">
+    {% if orders %}
+      <div class="ordersContainer">
+        {% for order in orders %}
+          <div class="orderCard">
+            <h2>Заказ ID: {{ order.id }}</h2>
+            <p>Дата создания: {{ order.created_at|date:"d-m-Y H:i" }}</p>
+            <p>Общая сумма: {{ order.totalPrice }} ₽</p>
+            
+            {% if order.isDelivered %}
+              <p>Статус: прибыл в пункт выдачи</p>
+            {% else %}
+              <p>Статус: в пути</p>
+            {% endif %}
+
+            <h3>Продукты:</h3>
+            <ul>
+              {% for item in order.items.all %}
+                <li>
+                  {{ item.product.name }} - {{ item.quantity }} ({{ item.price }} ₽)
+                </li>
+              {% empty %}
+                <li>Нет продуктов в этом заказе.</li>
+              {% endfor %}
+            </ul>
+            <a href="#" class="chatButton">Перейти в чат с заказом</a>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <h2 class="noOrders">Заказов небыло оформленно</h2>
+    {% endif %}
+  </div>
+
+{% endblock %}
+
+{% block contentJS %}
+<script src="{% static 'orders/js/orders.js' %}"></script>
+<script>
+</script>
+{% endblock %}

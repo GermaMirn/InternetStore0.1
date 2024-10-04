@@ -1,0 +1,1739 @@
+body.lightTheme {
+  background-color: white;
+  color: black;
+}
+
+body.darkTheme {
+  background-color: black;
+  color: white;
+}
+
+#header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+}
+
+.togglSswitch {
+  position: relative;
+}
+
+.toggleSwitch input[type="checkbox"] {
+  display: none;
+}
+
+.toggleLabel {
+  display: block;
+  width: 50px;
+  height: 26px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 2s ease;
+}
+
+.toggleCircle {
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 2s ease, background-color 2s ease;
+}
+
+input[type="checkbox"]:checked + .toggleLabel {
+  background-color: rgb(255, 255, 255);
+}
+
+input[type="checkbox"]:checked + .toggleLabel .toggleCircle {
+  transform: translateX(24px);
+  background-color: rgb(0, 0, 0);
+}
+
+#mainDiv{
+  margin-bottom: 5%;
+  padding-top: 3%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+#divHeader{
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+#divHeaderDark{
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.headerComponent{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  padding: 1%;
+  flex: 1;
+  transition: background-color 0.7s ease;
+}
+
+.headerComponentDark{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  padding: 1%;
+  flex: 1;
+  transition: background-color 0.7s ease;
+}
+
+.headerComponentDark:hover{
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.headerComponent:hover{
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 43%;
+  z-index: 9999;
+  font-size: 20px;
+}
+
+.success {
+  color: rgb(0, 126, 0);
+}
+
+.error {
+  color: rgb(174, 2, 2);
+}
+
+@media (max-width: 2660px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: x-large;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  
+  .searchInput, .searchInputDark {
+    width: 1450px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+
+  .divForProduct {
+    width: 30%;
+  }
+
+  .imgOfProduct {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+  }
+
+
+  .imgOfProductDark {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 1);
+  }
+}
+
+@media (max-width: 2335px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: x-large;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  
+  .searchInput, .searchInputDark {
+    width: 1310px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 2200px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: large;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  
+  .searchInput, .searchInputDark {
+    width: 1230px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1870px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: large;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  
+  .searchInput, .searchInputDark {
+    width: 1020px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1720px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 11%;
+    padding-right: 11%;
+    font-size: large;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+  
+  .searchInput, .searchInputDark {
+    width: 920px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+
+@media (max-width: 1630px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 850px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1540px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 780px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1460px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 715px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1380px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 655px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1250px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 605px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1170px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 11%;
+    padding-right: 11%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 585px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1120px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 565px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1060px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 555px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 525px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 970px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 7%;
+    padding-right: 9%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 505px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 920px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 505px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 890px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 455px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 840px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 445px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 790px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 435px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 415px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 740px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 415px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 680px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 385px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 620px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 345px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 580px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 285px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+
+@media (max-width: 550px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 225px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 490px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 215px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 420px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 215px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 195px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 380px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 175px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 360px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 155px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 335px) {
+  #mainDiv{
+    padding-top: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  #mainDivOfSearchBar{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .searchInput, .searchInputDark {
+    width: 135px;
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1099px) and (max-width: 1200px) {
+  .divForProduct {
+    width: 32%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  .divForProduct {
+    width: 45%;
+  }
+}
+@media (min-width: 758px) and (max-width: 991px) {
+  .divForProduct {
+    width: 48%;
+  }
+}
+
+@media (max-width: 757px) {
+  .divForProduct {
+    width: 100%;
+  }
+
+  .imgOfProduct {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+  }
+
+
+  .imgOfProductDark {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 1);
+  }
+}
+
+@media (max-width: 800px) {
+  .contentContainerDark, .contentContainer {
+    margin-right: 25%;
+  }
+}
+
+#mainDivOfSearchBar {
+  text-align: center;
+}
+
+#divOfSearchBar {
+  margin-top: 10%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#searchBar{
+  display: flex;
+}
+
+#forOfSearchInput{
+  display: flex;
+}
+
+.searchInput {
+  flex-grow: 1;
+  font-size: medium;
+  height: 30px;
+  padding: 9px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  border: 1px solid #ffffff;
+}
+
+.searchInputDark {
+  flex-grow: 1;
+  font-size: medium;
+  height: 30px;
+  padding: 9px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+  border: 1px solid #000000;
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+  border-color: #aaa;
+}
+
+.buttonOfSearchInput{
+  width: 50px;
+  height: 50px;
+  margin-left: 8%;
+  margin-top: 3%;
+  padding: 1%;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+}
+
+.buttonOfSearchInputDark{
+  width: 50px;
+  height: 50px;
+  margin-left: 8%;
+  margin-top: 3%;
+  padding: 1%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+#filterDiv img {
+  max-width: 50px;
+  height: 50px;
+  padding-right: 10px;
+}
+
+#divForTags{
+  display: flex;
+}
+
+.divForTag{
+  width: max-content;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 1%;
+  margin-left: 12%;
+}
+
+.divForTagDark{
+  width: max-content;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  padding: 1%;
+  margin-left: 12%;
+}
+
+.removeTag{
+  text-decoration: none;
+  color: inherit;
+}
+
+#areaProducts {
+  padding-left: 12%;
+  padding-right: 12%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.divForProduct {
+  box-sizing: border-box;
+  padding: 2%;
+  margin: 5px;
+}
+
+.imgOfProduct {
+  width: 240px;
+  height: 290px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+}
+
+.imgOfProductDark {
+  width: 240px;
+  height: 290px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 1);
+}
+
+.descriptionOfProduct {
+  text-align: center;
+}
+
+.infoDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20%;
+  color: white;
+  z-index: 1000;
+}
+
+.infoDivDark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20%;
+  color: rgb(0, 0, 0);
+  z-index: 1000;
+}
+
+.imgContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.closeButtonDark {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.imgDetail {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0);
+  cursor: pointer;
+}
+
+.imgDetailDark {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.contentContainer {
+  display: flex;
+  color: rgb(255, 255, 255);
+  z-index: 0;
+}
+
+.contentContainerDark{
+  display: flex;
+  color: rgb(0, 0, 0);
+  z-index: 0;
+}
+
+.descContainer{
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: large;
+  width: 400px;
+  min-width: 200px;
+  height: 100%;
+}
+
+.descContainerDark{
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: large;
+  width: 400px;
+  min-width: 200px;
+  text-align: center;
+  height: 100%;
+}
+
+.divForCategories{
+  display: flex;
+  justify-content: center;
+}
+
+.categoryName{
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-radius: 10px;
+  padding: 3%;
+  margin: 2%;
+  width: auto;
+  cursor: pointer;
+}
+
+.categoryNameDark{
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 3%;
+  margin: 2%;
+  width: auto;
+}
+
+#divForBottomPanel{
+  display: flex;
+  justify-content: space-between;
+}
+
+#divForShareAndMoreDetails{
+  margin: 25px;
+}
+
+.buttonFullInfo {
+  padding: 5px;
+}
+
+#divForHearts{
+  display: flex;
+}
+
+#heart {
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-left: 20px;
+  width: 35px;
+  height: 35px;
+}
+
+.numberOfHearts{
+  font-size: larger;
+}
+
+.fullImg {
+  width: 90vw;
+  height: 90vh;
+  box-shadow: 0 4px 20px rgba(0, 0, 0);
+  object-fit: cover;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  z-index: 1000;
+}
+
+.fullImgDark {
+  width: 90vw;
+  height: 90vh;
+  box-shadow: 0 4px 20px rgb(255, 255, 255);
+  object-fit: cover;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  z-index: 1000;
+}
+
+.closeButtonForFullImg {
+  position: fixed !important;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.closeButtonForFullImgDark {
+  position: fixed !important;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.divForWelcomePage{
+  padding-top: 7%;
+  padding-left: 6%;
+  padding-right: 6%;
+  text-align: center;
+}
+
+.imgCircle {
+  width: 80%;
+  height: auto;
+}
+
+.shadowEffect {
+  background: #fff;
+  padding: 5%;
+  border-radius: 4px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #ECECEC;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.testimonialName {
+  display: table;
+  width: auto;
+  background: black;
+  padding: 9px 35px;
+  border-radius: 12px;
+  text-align: center;
+  margin-left: 35%;
+}
+
+.hrefForProductDetail{
+  color: white;
+  text-decoration: none;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.sideImage {
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  width: 100%;
+}
+
+.item {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.item.active {
+  display: block;
+  opacity: 1;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 6%;
+  margin-right: 4%;
+}
+
+.controls button {
+  background: #fff;
+  color: #fff;
+  border: none;
+  padding: 2%;
+  border-radius: 5px;
+  margin: 2%;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+#divForSocialMedia{
+  display: inline-flex;
+}
+
+.dropdownContent {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 1);
+  padding: 10px 0;
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+.dropdownContentDark {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 1);
+  padding: 10px 0;
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+.dropdownUrl {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownUrlDark {
+  color: rgb(0, 0, 0);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownUrl:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.dropdownUrlDark:hover {
+  background-color: rgba(0,0,0,0.4);
+}
+
+#pagination {
+  text-align: center;
+  padding: 2%;
+  margin-top: 1%;
+}
+
+.paginationButton {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 30px;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.paginationButtonDark {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 30px;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.currentPage {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 30px;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+}
+
+.currentPageDark {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 30px;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 20px rgb(255, 255, 255);
+}
+
+
+
+
+
+/* детали о продукте */
+#mainProductDetailDiv{
+  margin-top: 6%;
+  display: flex;
+}
+
+.productDetailImg {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+#divForImageProductDetail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 800px;
+}
+
+#imgAboutProductDetailDiv {
+  padding-left: 11%;
+  width: 70%;
+}
+
+.arrowContainer {
+  position: absolute; 
+  top: 0;
+  height: 99%;
+  width: 5%;
+  display: flex;
+  align-items: center;
+  top: 0;
+  transition: background-color 0.5s;
+}
+
+#divLeftArrowProductDetail {
+  position: absolute;
+  left: 0;
+}
+
+#divRightArrowProductDetail {
+  position: absolute;
+  right: 10%;
+}
+
+#divRightArrowForFastInfo {
+  position: absolute;
+  right: 0;
+}
+
+.arrowContainer:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.arrowProductDetail {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #ffffff;
+  padding: 10px;
+  z-index: 1;
+}
+
+#mainInfoAboutProductDetailDiv {
+  padding-right: 11%;
+}
+
+#infoAboutProductDetailDiv{
+  display: flex;
+  margin-right: 5%;
+}
+
+#priceProductDetail{
+  margin-left: 0%;
+}
+
+#heartProductDetail{
+  margin-top: 7%;
+  padding-left: 3%;
+  width: 30px;
+  height: 30px;
+}
+
+#heartsCoutnProductDetail{
+  padding-left: 20%;
+}
+
+#descriptionAboutProductDetailDiv{
+  margin-top: 10%;
+}
+
+#buttonAddProductDetailDiv{
+  margin-top: 5%;
+}
+
+.addButtonProduct{
+  width: 100%;
+  padding: 5%;
+  font-size: larger;
+  background-color: black;
+  color: white;
+}
+
+.addButtonProductDark{
+  width: 100%;
+  padding: 5%;
+  font-size: larger;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+#divForComments{
+  padding-left: 11%;
+  padding-right: 11%;
+}
+
+#divForReviews{
+  font-size: large;
+  color: black;
+}
+
+.commentForm {
+  margin-bottom: 20px;
+}
+
+.commentTextarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #00000054;
+  border-radius: 4px;
+  resize: none;
+  font-size: large;
+}
+
+.addCommentButton {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #000000c8;
+  color: white;
+  cursor: pointer;
+}
+
+.addCommentButton:hover {
+  background-color: #000000;
+}
+
+.addCommentButtonDark {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #cacacab3;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.addCommentButtonDark:hover {
+  background-color: #acacac;
+}
+
+.headOfComment {
+  display: flex; 
+  align-items: center;
+}
+
+.heartsComments{
+  margin-left: auto;
+  margin-right: 1%;
+}
+
+.reviewText{
+  margin-left: 2%;
+}
+
+.review {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #00000054;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.comments {
+  padding-left: 2%;
+  margin-top: 2%;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-radius: 5px;
+}
+
+.comment {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.commentText {
+  margin-left: 2%;
+}
+
+.reviewDate, .commentDate {
+  font-size: 12px;
+  color: #aaa;
+  margin-right: 2%;
+}
+
+.noComments {
+  color: #999;
+  font-size: large;
+}
+
+.text{
+  font-size: large;
+}
+
+.divForCommentImagesAndTexts{
+  margin-left: 2%;
+  display: flex;
+}
+
+.commentImages{
+  width: 60%;
+  margin-bottom: 2%;
+}
+
+.commentImage{
+  width: 100%;
+  height: 100%;
+}
+
+/* корзина товаров */
+
+#divOfCartItems {
+  margin-left: 11%;
+  margin-right: 11%;
+}
+
+.divOfCartItem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 3%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.divOfCartItemDark {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 3%;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+}
+
+.selectedItem {
+  background-color: rgb(189, 189, 189);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.selectedItemDark {
+  background-color: rgb(69, 69, 69);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.45);
+}
+
+.imageOfCartItemDiv {
+  flex: 0 0 auto;
+}
+
+.imgeOfCartItem {
+  width: auto;
+  height: 250px;
+  margin-bottom: -4px;
+}
+
+.infoAboutCartItem {
+  padding: 20px;
+  width: max-content;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.nameOfCartItem{
+  font-size: large;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.nameOfCartItemDark{
+  font-size: large;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.btnChangeQuantity {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+}
+
+.btnChangeQuantityDark {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.quantityDisplay {
+  font-size: 20px;
+  margin-left: 5px;
+  margin-right: 15px;
+}
+
+.itemPrice {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.btnRemoveItem {
+  margin-top: 10px;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btnRemoveItemDark {
+  margin-top: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#divForTextAboutCartItem {
+  text-align: center;
+}
+
+
+/* style of selected cart items */
+.infoAboutSelectedCartItems{
+  margin-top: 8%;
+  margin-left: 30%;
+  margin-right: 11%;
+  width: 40%;
+  border: solid 2px black;
+  font-size: larger;
+  padding: 1%;
+}
+
+.infoAboutSelectedCartItemsDark{
+  margin-top: 8%;
+  margin-left: 30%;
+  margin-right: 11%;
+  width: 40%;
+  border: solid 2px rgb(255, 255, 255);
+  font-size: larger;
+  padding: 1%;
+}
+
+#mainTextAboutInfoSelectedCartItems{
+  text-align: center;
+}
+
+.CartItemOfList{
+  font-weight: 900;
+}
+
+.orderButton{
+  padding: 2%;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  width: 200px;
+  height: 45px;
+  margin-left: 32%;
+}
+
+.orderButtonDark{
+  padding: 2%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  width: 200px;
+  height: 45px;
+  margin-left: 32%;
+}

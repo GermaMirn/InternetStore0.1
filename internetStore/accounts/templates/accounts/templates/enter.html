@@ -1,0 +1,54 @@
+{% extends 'accounts/templates/base.html' %}
+{% load static %}
+
+{% block content %}
+{% if messages %}
+    <div id="notification" class="notification" style="display: none;">
+        {% for message in messages %}
+            <span class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</span>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<form action="" method="post" id="divForButton">
+  {% csrf_token %}
+  <div id="inputContainer">
+      <div class="buttons">
+          <label for="username">Имя пользователя:</label>
+          <input type="text" id="username" name="username" class="button" required><br><br>
+          <p class="errorText" id="errorUsername">Данныое имя пользователя не верно</p>
+      </div>
+
+      <div class="buttons">
+          <label for="password">Пароль:</label>
+          <input type="password" id="password" name="password" class="button" required><br><br>
+          <p class="errorText" id="errorPassword">пароли не правильный</p>
+      </div>
+
+      <div class="buttons" id="buttonDiv">
+          <button type="submit" class="button" id="buttonRegister">Войти</button>
+      </div>
+
+      <div id="forgetPassword">
+        <p>Забыл пароль?</p>
+      </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block contentJS %}
+  <script>
+    window.onload = function() {
+      var notification = document.getElementById('notification');
+      if (notification) {
+          notification.style.display = 'block';
+          setTimeout(function() {
+          notification.style.display = 'none';
+          }, 3500);
+      }
+    };
+
+    var csrfToken = '{{ csrf_token }}';
+  </script>
+  <script src="{% static 'accounts/js/enter.js' %}"></script>
+{% endblock %}

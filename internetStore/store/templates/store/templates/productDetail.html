@@ -1,0 +1,149 @@
+{% extends 'store/templates/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div id="mainProductDetailDiv">
+
+    <div id="imgAboutProductDetailDiv">
+      <h1>{{ product.name }}</h1>
+
+      <div id="divForImageProductDetail">
+
+        <div id="divLeftArrowProductDetail" class="arrowContainer">
+            <span class="arrowProductDetail">&#8249;</span> 
+        </div>
+
+        <div>
+            <img src="{{ product.mainImage.url }}" alt="Описание изображения" class="productDetailImg">
+        </div>
+
+        <div id="divRightArrowProductDetail" class="arrowContainer">
+            <span class="arrowProductDetail">&#8250;</span> 
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="mainInfoAboutProductDetailDiv">
+
+      <div id="infoAboutProductDetailDiv">
+        <h1 id="priceProductDetail">Цена: {{ product.price }}</h1> 
+        <h1 id="heartsCoutnProductDetail">{{ product.hearts }}</h1>
+        <img id="heartProductDetail" src="" alt="Heart icon'">
+      </div>
+
+      <div id="descriptionAboutProductDetailDiv">
+        <h2>Описание: </h2>
+        <h3>{{ product.description }}</h3>
+      </div>
+
+      <div id="buttonAddProductDetailDiv">
+        <button class="addButtonProduct" id="addButtonProductToShoppingCart" dataProductID="{{ product.id }}">Добавить в корзину</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="divForComments">
+    <h1>Комментарии:</h1>
+
+    <div id="divForReviews">
+      {% for review in reviews %}
+        <div class="review">
+          <div class="headOfComment">
+            <em class="reviewDate">{{ review.created_at }}</em>
+            <strong class="reviewUser">{{ review.user.user }}</strong>:
+            <strong class="heartsComments">{{ review.hearts }}</strong>
+            <img src="{% static 'store/images/' %}{% if review.id in likedReview %}commentHeartFull.png{% else %}commentHeart.png{% endif %}" alt="Heart" class="heartsCommentsImg {% if review.id in likedReview %}hearted{% endif %}" dataReviewID="{{ review.id }}">
+          </div><br><br>
+
+          <div class="divForCommentImagesAndTexts">
+            <div class="commentImages">
+              {% for reviewImage in review.reviewImages.all %}
+                <img src="{{ reviewImage.image.url }}" alt="Image for comment" class="commentImage">
+              {% endfor %}
+            </div>
+            <span class="reviewText">{{ review.text }}</span> 
+          </div>
+
+          <div class="comments" commentsreview="{{ review.id }}">
+            {% for comment in review.comments.all %}
+              <div class="comment">
+                <div class="headOfComment">
+                  <em class="commentDate">{{ comment.created_at }}</em>
+                  <strong class="commentUser">{{ comment.user.user }}</strong>:
+                  <span class="heartsComments">{{ comment.hearts }}</span>
+                  <img src="{% static 'store/images/' %}{% if comment.id in likedComment %}commentHeartFull.png{% else %}commentHeart.png{% endif %}" alt="Heart" class="heartsCommentsImg {% if comment.id in likedComment %}hearted{% endif %}" dataCommentID="{{ comment.id }}">
+                </div><br><br>
+
+                <div class="divForCommentImagesAndTexts">
+                  <div class="commentImages">
+                    {% for commentImage in comment.commentImages.all %}
+                      <img src="{{ commentImage.image.url }}" alt="Image for comment" class="commentImage">
+                    {% endfor %}
+                  </div>
+                  <span class="commentText">{{ comment.text }}</span> 
+                </div>
+
+              </div>
+            {% empty %}
+              <p class="noComments" nocommentsreviewid="{{ review.id }}">Нет комментариев.</p>
+            {% endfor %}
+            
+            {% if user.is_authenticated %}
+              <form method="POST" action="{% url 'addComment' review.id %}" class="commentForm" enctype="multipart/form-data">
+                {% csrf_token %}
+                <textarea name="comment" required placeholder="Напишите комментарий..." class="commentTextarea"></textarea>
+                <input type="file" name="image" accept="image/*" multiple>
+                <button type="submit" class="addCommentButton addComments" id="addComment">Добавить комментарий</button>
+              </form>
+            {% else %}
+              <p class="text">Чтобы оставить комментарий, нужно <a href="{% url 'login' %}">войти</a>.</p>
+            {% endif %}
+          </div>
+        </div>
+      {% empty %}
+        <p class="noComments" id="noReviews">Нет отзывов.</p>
+      {% endfor %}
+    </div>
+
+    {% if user.is_authenticated %}
+      <h2 class="text">Добавить отзыв:</h2>
+      <form method="POST" action="{% url 'addReview' product.id %}" id="reviewFormAdd" class="commentForm" enctype="multipart/form-data">
+        {% csrf_token %}
+        <textarea name="review" required placeholder="Напишите свой отзыв..." class="commentTextarea"></textarea>
+        <input type="file" name="image" accept="image/*" multiple>
+        <button type="submit" class="addCommentButton" id="addReview">Добавить отзыв</button>
+      </form>
+    {% else %}
+      <p class="text">Чтобы оставить отзыв, нужно <a href="{% url 'login' %}">войти</a>.</p>
+    {% endif %}
+
+  </div>
+{% endblock %}
+
+{% block contentJS %}
+<script>
+  const images = {{ imagesURL|safe }};
+
+  const product = {
+    id: '{{ product.id }}',
+    name: '{{ product.name }}',
+    price: '{{ product.price }}',
+    hearts: {{ product.hearts }},
+    isHearted: {{ isHearted|lower }},
+    mainImageUrl: '{{ product.images.url }}',
+    images: images,
+  };
+
+  var heartFullSrc = "{% static 'store/images/heartFull.png' %}";
+  var heartSrc = "{% static 'store/images/heart.png' %}";
+  var commentHeartFullSrc = "{% static 'store/images/commentHeartFull.png' %}";
+  var commentHeartSrc = "{% static 'store/images/commentHeart.png' %}";
+  var csrfToken = '{{ csrf_token }}';
+  
+</script>
+<script src="{% static 'store/js/productDetail.js' %}"></script>
+{% endblock %}

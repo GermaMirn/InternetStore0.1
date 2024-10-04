@@ -1,0 +1,73 @@
+{% extends 'store/templates/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="divForWelcomePage">
+    <h1 >Приветствие</h1>
+
+    <h2>Самые популярные товары</h2>
+
+    <section class="testimonials">
+      <div class="container">
+        <div id="customersTestimonials" class="carousel">
+
+          <div class="controls">
+            <button id="prevBtn">
+              <img id="prevImage" class="sideImage" src="{{ popularProducts.0.mainImage.url }}" alt="Previous">
+            </button>
+          </div>
+
+          <div class="item active">
+            <div class="shadowEffect">
+              <img id="mainImage" class="imgCircle sideImage" src="{{ popularProducts.0.mainImage.url }}" alt="">
+              <p id="nameOfProduct"></p>
+            </div>
+            <div class="testimonialName">
+              <a calss="hrefForProductDetail" class="hrefForProductDetail" href="{% url 'productDetail' popularProducts.0.id %}">Подробнее</a>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="nextBtn">
+              <img id="nextImage" class="sideImage" src="{{ popularProducts.mainImage.url }}" alt="">
+            </button>
+          </div>
+
+        </div>
+      </div>
+  </section>
+
+    <h2 >Наши контакты:</h2><br>
+    <h2 >+7 (912) 167-31-11</h2>
+
+    <div id="divForSocialMedia">
+
+      <div class="socialMedia">
+        <a href="">
+          <img src="{% static 'store/images/whatsapp.png' %}" alt="whatsapp" id="whatsappImg">
+        </a>
+      </div>
+
+
+      <div class="socialMedia">
+        <a href="https://vk.com/amironchuk1980">
+          <img src="{% static 'store/images/vk.png' %}" alt="vk.com" id="vkImg">
+        </a>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block contentJS %}
+<script>
+  var backAnswer = '{{ error }}';
+  var images = [];
+  var productName = [];
+  {% for product in popularProducts %}
+    images.push('{{ product.mainImage.url }}');
+    productName.push('{{ product.name }}');
+  {% endfor %}
+</script>
+<script src="{% static 'store/js/main.js' %}"></script>
+{% endblock %}

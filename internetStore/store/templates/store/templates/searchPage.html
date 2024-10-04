@@ -1,0 +1,91 @@
+{% extends 'store/templates/base.html' %}
+{% load static %}
+
+{% block forSearchPage %}
+  <div id="mainDivOfSearchBar">
+    <div id="divOfSearchBar">
+      <div id="searchBar">
+        <form action="" method="get" id="forOfSearchInput">
+          <input type="text" name="searchInput" class="searchInput" id="searchInput" placeholder="Поиск товаров в названиях">
+          <button type="submit" id="buttonOfSearchInput" class="buttonOfSearchInput" style="display: none;">Поиск</button>
+        </form>
+      </div>
+      <div id="filterDiv">
+        <img src="{% static 'store/images/filter.png' %}" alt="Фильтр" id="filter">
+      </div>
+    </div>
+  </div>
+
+  {% if currentTags %}
+    <div id="divForTags">
+      {% for tag in currentTags %}
+        <div class="divForTag">
+          <span class="currentTags">{{ tag }}</span>
+          <a href="{% if currentTags|length == 1 %}{% url 'searchPage' %}{% else %}{% url 'searchPage' %}?tags={{ tag }}&{% if searchInput %}searchInput={{ searchInput }}&{% endif %}page={{ current_page }}{% endif %}" class="removeTag">✖</a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+  <div id="areaProducts"></div>
+
+  <div id="pagination">
+
+    {% if page.number > 2 %}
+      <a href="{% url 'searchPage' %}?page=1" class="paginationButton">1</a>
+    {% endif %}
+
+    {% if page.has_previous %}
+      <a href="{% url 'searchPage' %}?page={{ page.previous_page_number }}" class="paginationButton">{{ page.previous_page_number }}</a>
+    {% endif %}
+
+    <span class="currentPage">{{ page.number }}</span>
+
+    {% if page.has_next and page.next_page_number < page.paginator.num_pages %}
+      <a href="{% url 'searchPage' %}?page={{ page.next_page_number }}" class="paginationButton">{{ page.next_page_number }}</a>
+    {% endif %}
+
+    {% if page.number < page.paginator.num_pages %}
+      <a href="{% url 'searchPage' %}?page={{ page.paginator.num_pages }}" class="paginationButton">{{ page.paginator.num_pages }}</a>
+    {% endif %}
+
+  </div>
+{% endblock %}
+
+{% block contentJS %}
+<script>
+  var productsForPage = [];
+
+  const productsData = {{ products|safe }};
+
+  productsData.forEach(product => {
+    const productObj = {};
+    productObj["id"] = product.id;
+    productObj["name"] = product.name;
+    productObj["description"] = product.description;
+    productObj["price"] = product.price;
+
+    if (typeof product.categories === 'string') {
+      productObj["categories"] = [product.categories];
+    } else if (Array.isArray(product.categories)) {
+      productObj["categories"] = product.categories;
+    }
+
+    productObj["images"] = product.imagesURL;
+    productObj["mainImageUrl"] = product.mainImageUrl;
+    productObj["hearts"] = product.hearts;
+    productObj["isHearted"] = product.isHearted === "true";
+
+    productsForPage.push(productObj);
+  });
+
+  var heartFullSrc = "{% static 'store/images/heartFull.png' %}";
+  var heartSrc = "{% static 'store/images/heart.png' %}";
+  var csrfToken = '{{ csrf_token }}';
+</script>
+<script src="{% static 'store/js/searchPage.js' %}"></script>
+{% endblock %}

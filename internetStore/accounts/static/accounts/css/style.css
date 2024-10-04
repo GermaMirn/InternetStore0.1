@@ -1,0 +1,325 @@
+body.lightTheme {
+  background-color: white;
+  color: black;
+}
+
+body.darkTheme {
+  background-color: black;
+  color: white;
+}
+
+#header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+}
+
+.togglSswitch {
+  position: relative;
+}
+
+.toggleSwitch input[type="checkbox"] {
+  display: none;
+}
+
+.toggleLabel {
+  display: block;
+  width: 50px;
+  height: 26px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 1s ease;
+}
+
+.toggleCircle {
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 1s ease, background-color 1s ease;
+}
+
+input[type="checkbox"]:checked + .toggleLabel {
+  background-color: rgb(255, 255, 255);
+}
+
+input[type="checkbox"]:checked + .toggleLabel .toggleCircle {
+  transform: translateX(24px);
+  background-color: rgb(0, 0, 0);
+}
+
+#divForButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  transform: translate(-50%, -50%);
+  padding: 8%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.buttons {
+  width: 100%;
+  padding: 1%;
+}
+
+.button {
+  padding: 3%;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 5%;
+  border-color: rgb(0, 0, 0);
+  font-size: medium;
+}
+
+#buttonDiv {
+  margin-top: 10%;
+  margin-left: 1%;
+  width: 106%;
+}
+
+#forgetPassword{
+  text-align: right;
+  cursor: pointer;
+}
+
+@media (max-width: 1050px) {
+  #divForButton {
+    width: 40%;
+    padding: 5%;
+  }
+
+  .buttons {
+    padding: 1%;
+  }
+
+  .button {
+    padding: 3%;
+  }
+}
+
+@media (max-width: 900px) {
+  #divForButton {
+    width: 40%;
+    padding: 10%;
+  }
+
+  .buttons {
+    padding: 3%;
+  }
+
+  .button {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 700px) {
+  #divForButton {
+    width: 50%;
+    padding: 15%;
+  }
+
+  .buttons {
+    padding: 3%;
+  }
+
+  .button {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 500px) {
+  #divForButton {
+    width: 60%;
+    padding: 17%;
+  }
+
+  .buttons {
+    padding: 3%;
+  }
+
+  .button {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 1050px) {
+  #divForButton {
+    width: 40%;
+    padding: 5%;
+  }
+
+  .buttons {
+    padding: 1%;
+  }
+
+  .button {
+    padding: 3%;
+  }
+}
+
+@media (max-width: 900px) {
+  #divForButton {
+    width: 40%;
+    padding: 10%;
+  }
+
+  .buttons {
+    padding: 3%;
+  }
+
+  .button {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 700px) {
+  #divForButton {
+    width: 50%;
+    padding: 15%;
+  }
+
+  .buttons {
+    padding: 3%;
+  }
+
+  .button {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 500px) {
+  #divForButton {
+    width: 60%;
+    padding: 17%;
+  }
+
+  .buttons {
+    padding: 3%;
+  }
+
+  .button {
+    padding: 5%;
+  }
+}
+
+#divForButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  transform: translate(-50%, -50%);
+  padding: 8%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.buttons {
+  width: 100%;
+  padding: 1%;
+}
+
+.button {
+  padding: 3%;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 5%;
+  border-color: rgb(0, 0, 0);
+  font-size: medium;
+}
+
+#buttonDiv {
+  margin-top: 10%;
+  margin-left: 1%;
+  width: 106%;
+}
+
+.errorText{
+  color: red;
+  padding: 0;
+  margin-top: -5%;
+  display: none;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 43%;
+  z-index: 9999;
+  font-size: 20px;
+}
+
+.success {
+  color: rgb(0, 126, 0);
+}
+
+.error {
+  color: rgb(174, 2, 2);
+}
+
+@media (max-width: 1050px) {
+  #divForButton {
+    width: 40%;
+    padding: 5%;
+  }
+
+  .buttons {
+    padding: 1%;
+  }
+
+  .button {
+    padding: 3%;
+  }
+}
+
+@media (max-width: 900px) {
+  #divForButton {
+    width: 40%;
+    padding: 10%;
+  }
+
+  .buttons {
+    padding: 3%;
+  }
+
+  .button {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 700px) {
+  #divForButton {
+    width: 50%;
+    padding: 15%;
+  }
+
+  .buttons {
+    padding: 3%;
+  }
+
+  .button {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 500px) {
+  #divForButton {
+    width: 60%;
+    padding: 17%;
+  }
+
+  .buttons {
+    padding: 3%;
+  }
+
+  .button {
+    padding: 5%;
+  }
+}
